@@ -1,0 +1,304 @@
+:root {
+    --turquoise: #237886;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    /* padding: 0 5px; */
+}
+
+body {
+    margin: 0;
+    line-height: 1.9;
+}
+
+#about {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+#gallery,
+#contact {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+/* Middle row placement */
+#projects {
+    grid-column: 1;
+}
+
+#services {
+    grid-column: 2;
+}
+
+
+/* Header */
+header {
+    background: var(--turquoise);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar {
+    background-color: #237886;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    padding: 50px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(255, 255, 255, 1)), url("images/received_1004829354119802.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    position: absolute;
+    padding: 10px;
+    margin: 10px;
+}
+
+.hero>* {
+    position: relative;
+    z-index: auto;
+}
+
+#h2 {
+    color: white;
+    animation-name: slideinfromleft;
+    animation-duration: 2s;
+}
+
+#header-p {
+    color: white;
+    animation-name: slideinfromleft;
+    animation-duration: 2s;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #555;
+    cursor: underline;
+}
+
+/* Sections */
+section {
+    padding: 40px 0;
+}
+
+#about hr {
+    display: none;
+}
+
+.about-img img {
+    display: block;
+    max-width: 100%;
+    height:auto;
+    border-radius: 2px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 100%;
+    font-size: larger;
+}
+
+.projects {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.projects__card:hover {
+    background-color: var(--turquoise);
+    cursor:grab;
+
+}
+
+.projects__card, .services__card {
+    border: 2px solid #237886;
+    background: #eee;
+    padding: 20px;
+    flex: 0 1 300px;
+    text-align: center;
+    border-radius: 50px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.services {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.services__card:hover {
+    background-color: var(--turquoise);
+    cursor: grab;
+    transition-timing-function: ease-in;
+    transition-delay: 0.5s;
+}
+
+.services__card--active {
+    /* When expanded, allow normal wrapping */
+    white-space: normal;
+    max-width: 500px;
+    /* wider so content fits */
+}
+
+.services__card--content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.services__card--active .services__card--content {
+    max-height: 600px;
+    /* enough for full content */
+    margin-top: 15px;
+}
+
+.services__card--active .services__card--content img {
+    max-width: 100%;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.carousel-item {
+    aspect-ratio: 16 / 9;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+button {
+    padding: 2px 3px;
+    background-color: #237886;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+@keyframes slideinfromleft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+    main {
+        grid-template-columns: 100%;
+    }
+
+    #projects,
+    #services,
+    #gallery,
+    #contact,
+    #about {
+        grid-column: 1 / -1;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #about {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-img img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    #projects {
+        text-align: center;
+    }
+
+    .projects, .services {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    #services {
+        text-align: center;
+    }
+    .projects .card,
+    .services .card{
+        flex: 1 1 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
