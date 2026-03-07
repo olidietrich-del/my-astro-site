@@ -1,60 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oli Dietrich - Circus Artist</title>
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<body>
-<!-- Navigation -->
-  <header>
-    <h1>Oli Dietrich - Circus Artist</h1>
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">about</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">contact</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="gallery.html" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Gallery
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="gallery.html">Pictures</a></li>
-                <li><a class="dropdown-item" href="gallery.html">Videos</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-
+---
+import BaseLayout from '../layout/BaseLayout.astro';
+---
+<BaseLayout>
 <!-- Gallery Section -->
   <section id="gallery">
+    <div class="container">
     <h2>Gallery</h2>
     <div class="gallery">
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -89,4 +39,5 @@
         </button>
 
       </div>
-  </section>
+      </div>
+      </BaseLayout>

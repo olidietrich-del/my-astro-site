@@ -1,80 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oli Dietrich - Circus Artist</title>
-  <link rel="stylesheet" href="/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<body>
-  <!-- Navigation -->
-  <header>
-    <h1>Oli Dietrich - Circus Artist</h1>
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">about</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">contact</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="gallery.html" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Gallery
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="gallery.html">Pictures</a></li>
-                <li><a class="dropdown-item" href="gallery.html">Videos</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Projects Section -->
+---
+import BaseLayout from '../layout/BaseLayout.astro';
+---
+<BaseLayout>
   <section id="projects">
+  <div class="container">
     <h2>My Projects</h2>
     <div class="projects">
-      <div class="card">My work</div>
-      <div class="card">Freestyle Orchestra</div>
-      <div class="card">Tocca Theater</div>
-    </div>
-  </section>
-  <section class="weather-section">
-    <h3>Upcoming Show Weather – Dublin</h3>
-    <div class="weather-box">
-      <p id="weather-info">Loading weather...</p>
-    </div>
-  </section>
-  <footer>
-    <p>© 2026 Oli Dietrich - Circus Artist</p>
-  </footer>
 
-  <script src="script.js"></script>
-  <script src="playapi.js"></script>
-</body>
+      <!-- Card 1 -->
+      <div class="projects__card">
+        <p class="title">My Work</p>
+        <img src="/images/photos_performance/IMG-20260214-WA0006.jpg" alt="Oli handstand on paperpile" class="img">
+        <p>I create indoor and outdoor shows including physical theatre, circus, and live music. I perform in the streets of Dublin. If the temperature is above 15°C and the wind is no more than 15 km/h, come and say hello!</p>
 
-</html>
+        <!-- Weather widget inside the first card -->
+        <section class="weather-section">
+          <h3>Weather – Dublin</h3>
+          <div class="weather-box">
+            <p id="weather-info">Loading weather...</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="projects__card">
+        <p class="title">Freestyle Orchestra</p>
+        <img src="/images/photos_performance/IMG_1195.jpg" alt="Freestyle Orchestra performance" class="img">
+        <p>Collaborative musical performances mixing circus and music. Bringing rhythm, energy, and spectacle to unique venues. Come and see us at Edinburgh Fringe 2026!</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="projects__card">
+        <p class="title">Tocca Theater</p>
+        <img src="/images/photos_performance/tocca_endlos_2025_leonie_pock_15.jpg" alt="Tocca Theater performance scientists" class="img">
+        <p>Participated in inclusive theater projects combining physical theater, live music, and acrobatics. Creating unforgettable audience experiences.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+</BaseLayout>
