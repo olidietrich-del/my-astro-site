@@ -2,11 +2,13 @@ function changeText() {
   document.getElementById("title").innerText = "JavaScript is working!";
 }
 
-window.scrollToContact = function () {
+//this button scrolls smoothly to my contact section. Quick way for user to get my contact details
+function scrollToContact() {
   const contactSection = document.getElementById('contact');
   contactSection.scrollIntoView({ behavior: 'smooth' });
 }
 
+//Brings user to my projects site when clicked
 const projectCards = document.querySelectorAll('.projects__card');
 
 projectCards.forEach(card => {
@@ -15,6 +17,7 @@ projectCards.forEach(card => {
   });
 });
 
+//Expands cards to see what services I provide
 const serviceCards = document.querySelectorAll('.services__card');
 
 serviceCards.forEach(card => {
@@ -28,105 +31,36 @@ serviceCards.forEach(card => {
   });
 });
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(() => {
-  'use strict'
-
-  document.getElementById('email_address').value = "type e-mail here";
-  document.getElementById('email_address').style.color = "lightgrey";
-
-  const input = document.getElementById('email_address');
-
-  input.addEventListener('focus', function () {
-    if (this.value === "type e-mail here") {
-      this.value = "";
-      this.style.color = "black";
-    }
-  });
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-
-function displayErrorMessage(element) {
-  let errorMsg = document.querySelector(".error-message");
-  if (!errorMsg) {
-    errorMsg = document.createElement("p");
-    errorMsg.textContent = "Please enter your email.";
-    errorMsg.className = "error-message";
-    errorMsg.style.color = "red";
-    element.parentNode.appendChild(errorMsg);
-  }
-
-  element.addEventListener("focus", () => {
-    const msg = document.querySelector(".error-message");
-    if (msg) msg.remove();
-  }, { once: true });
-
-}
-
-// Select the form
+// e-mail newsletter form
 const emailForm = document.getElementById('email_form');
 
-// Listen for submit
 emailForm.addEventListener('submit', function (event) {
-  event.preventDefault(); // stop default form submission
+  event.preventDefault();
 
   const emailInput = document.getElementById('email_address');
   const email = emailInput.value.trim();
 
-  // Basic validation
+
   if (email === "") {
-    displayErrorMessage(emailInput);
-    return;
-  }
-
-  if (!validateEmail(email)) {
-    displayErrorMessage(emailInput);
-
+    displayErrorMessage(emailInput, "Please enter your e-mail");
     return;
   }
 
   localStorage.setItem("newsletterEmail", email)
 
-  // Here you would send the email to your server or service
+  // alert function on screen
   alert(`Thank you! ${email} has been added to the list.`);
 
-  // Optional: clear the input
+
   emailInput.value = "";
-});
-
-// Email validation function
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-const btn = document.querySelector(".btn.btn-primary");
-
-btn.addEventListener("click", function (event) {
-  event.preventDefault(); // prevents form from submitting if inside a form
-  alert("Thank you for sending your details, you'll receive an e-mail shortly");
 });
 
 window.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById('email_address');
 
-  // Always start with the placeholder text
+
   emailInput.value = "type e-mail here";
-  emailInput.style.color = "lightgrey";
+  emailInput.style.color = "#237886";
 
   emailInput.addEventListener("focus", function () {
     if (this.value === "type e-mail here") {
@@ -134,12 +68,45 @@ window.addEventListener("DOMContentLoaded", function () {
       this.style.color = "black";
     }
   });
-
-  emailInput.addEventListener("blur", function () {
-    if (this.value.trim() === "") {
-      this.value = "type e-mail here";
-      this.style.color = "lightgrey";
-    }
-  });
 });
 
+// get in touch via this form
+const form = document.querySelector(".needs-validation");
+
+form.addEventListener("submit", function (event) {
+
+  if (!form.checkValidity()) {
+    event.preventDefault();
+    event.stopPropagation();
+  } else {
+    alert("Thank you for your message, I'll be in touch with you shortly");
+  }
+
+  form.classList.add("was-validated");
+
+});
+
+//Display an error message in red if e-mail hasn't been filled in!
+//error message for contact form
+function displayErrorMessage(element, message) {
+
+  let errorMsg = element.parentNode.querySelector(".error-message");
+
+  if (!errorMsg) {
+    errorMsg = document.createElement("p");
+    errorMsg.className = "error-message";
+    errorMsg.textContent = message;
+    errorMsg.style.color = "red";
+    element.parentNode.appendChild(errorMsg);
+  }
+
+  element.addEventListener("focus", () => {
+    errorMsg.remove();
+  }, { once: true });
+
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
