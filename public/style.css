@@ -8,8 +8,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+title,
+h1,
+h2,
+h3 {
     font-family: 'Combo', sans-serif;
-    /* font-family: Arial, sans-serif; */
+    font-weight: bold;
 }
 
 main {
@@ -62,16 +69,8 @@ header {
     align-items: center;
 }
 
-.navbar-brand {
-    font-size: 2.4rem;
-}
-
 .custom-navbar {
     background-color: #237886;
-}
-
-.custom-navbar .nav-link {
-    font-size: 1.4rem;
 }
 
 .custom-navbar .nav-link:hover {
@@ -89,7 +88,7 @@ header {
 
 .hero::before {
     content: "";
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(255, 255, 255, 1)), url("images/received_1004829354119802.jpeg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(255, 255, 255, 1)), url("images/received_1004829354119802.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -195,12 +194,11 @@ section {
     transition-timing-function: ease-in;
     transition-delay: 0.5s;
 }
+
 /* cards aren't expanded but when clicked then they show what my services are in a little bit more detail */
 .services__card--active {
-    /* When expanded, allow normal wrapping */
     white-space: normal;
     max-width: 500px;
-    /* wider so content fits */
 }
 
 .services__card--content {
@@ -211,7 +209,6 @@ section {
 
 .services__card--active .services__card--content {
     max-height: 600px;
-    /* enough for full content */
     margin-top: 15px;
 }
 
@@ -285,6 +282,7 @@ footer {
     margin-top: 40px;
 }
 
+/*text in hero section is going to slide in when page loads*/
 @keyframes slideinfromleft {
     from {
         transform: translateX(-100%);
@@ -296,7 +294,7 @@ footer {
 }
 
 
-/* responsive design */
+/* responsive design on smaller screens */
 
 @media screen and (max-width: 700px) {
     main {
@@ -349,7 +347,6 @@ footer {
 }
 
 /* projects page here as I added it late */
-
 
 #projects {
     padding: 50px 0;
